@@ -10,7 +10,8 @@
 }
 /* Let the desktop composition grow with the screen, independently of the catalog. */
 @media(min-width:901px){
- .hero{--u:calc(100vw / 1440);width:100vw;left:50%;margin-left:-50vw;overflow:clip}
+ .hero{--u:calc(var(--viewport-width,100vw) / 1440);width:var(--viewport-width,100vw);left:50%;margin-left:calc(var(--viewport-width,100vw) / -2);overflow:clip}
+ .hero-cats{transform:scale(1.05);transform-origin:50% 85%}
  .hero h1{font-size:clamp(57px,6.388889vw,110px)}
  .hero-intro{font-size:clamp(15px,1.319445vw,22px)}
 }
@@ -27,3 +28,4 @@
  .hero-cat.tabby{left:calc(91 * var(--u));top:calc(174 * var(--u));width:calc(208 * var(--u));height:calc(258 * var(--u));z-index:6}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+html,body{overflow-x:clip}

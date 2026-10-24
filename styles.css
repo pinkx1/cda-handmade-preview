@@ -12,8 +12,8 @@
 @media(min-width:901px){
  .hero{--u:calc(var(--viewport-width,100vw) / 1440);width:var(--viewport-width,100vw);left:50%;margin-left:calc(var(--viewport-width,100vw) / -2);overflow:clip}
  .hero-cats{transform:scale(1.05);transform-origin:50% 85%}
- .hero h1{font-size:clamp(57px,6.388889vw,110px)}
- .hero-intro{font-size:clamp(15px,1.319445vw,22px)}
+ .hero h1{font-size:clamp(64px,7.083334vw,136px)}
+ .hero-intro{font-size:clamp(18px,1.527778vw,30px)}
 }
 /* Mobile hero: the approved overlapping composition from Figma. */
 @media(max-width:900px){
@@ -29,3 +29,14 @@
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 html,body{overflow-x:clip}
+.hero-copy{position:absolute;left:50%;top:calc(16 * var(--u));transform:translateX(-50%);width:calc(1200 * var(--u));display:flex;flex-direction:column;align-items:center;gap:clamp(14px,1.1vw,24px);z-index:1;pointer-events:none}
+.hero-copy h1,.hero-copy .hero-intro{position:static;width:100%;left:auto;top:auto}
+.hero-copy .hero-intro{max-width:1000px}
+@media(max-width:900px){
+ .hero-copy{top:calc(12 * var(--u));width:calc(358 * var(--u));gap:calc(12 * var(--u))}
+ .hero-copy h1{font-size:clamp(34px,10.769231vw,64.615px);line-height:1.05}
+ .hero-copy .hero-intro{width:calc(350 * var(--u));font-size:clamp(15px,4.358974vw,26.154px);line-height:1.35}
+ .hero-cats{top:calc(200 * var(--u))}
+ .hero-heart-three{top:calc(216 * var(--u))}
+ .hero{height:calc(662 * var(--u))}
+}

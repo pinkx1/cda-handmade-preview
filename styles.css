@@ -97,3 +97,31 @@ html,body{overflow-x:clip}
 
 @media(min-width:901px) and (max-height:850px){.hero-copy h1{font-size:clamp(56px,6vw,88px)}.hero-copy .hero-intro{font-size:18px;max-width:440px}}
 
+
+/* Stable flow layout: copy and composition share a single measured stack. */
+@media(min-width:901px){
+ .hero{height:auto;min-height:0;width:100%;left:auto;margin:0;padding:14px 0 26px;overflow:visible}
+ .hero-copy{position:relative;left:auto;top:auto;transform:none;width:min(1100px,92%);margin:0 auto;gap:12px}
+ .hero-copy h1{font-size:clamp(48px,5.5vw,88px);line-height:1.02}
+ .hero-copy .hero-intro{font-size:clamp(17px,1.4vw,21px);max-width:760px;width:100%;line-height:1.35}
+ .hero-cats{--u:min(.86px,calc(94vw / 1440),calc((100svh - 330px) / 795));position:relative;left:auto;top:auto;bottom:auto;transform:none;margin:-24px auto 0;width:calc(1440 * var(--u));height:calc(795 * var(--u));min-width:650px}
+ .hero-cat.yellow{top:0;left:calc(1072 * var(--u))}.hero-cat.black{top:calc(129 * var(--u))}.hero-cat.tabby{top:calc(293 * var(--u))}.hero-cat.calico{top:calc(297 * var(--u))}.hero-cat.pink{top:calc(433 * var(--u))}.hero-cat.green{top:calc(466 * var(--u))}
+ .hero-note{top:190px;right:3%;left:auto;font-size:24px}.hero-heart-one,.hero-heart-two,.hero-heart-three{display:none}
+}
+@media(max-width:900px){
+ .hero{height:auto;overflow:hidden;padding:10px 0 24px}
+ .hero-copy{position:relative;top:auto;left:auto;transform:none;width:calc(100% - 32px);margin:auto;gap:12px}
+ .hero-copy h1{font-size:clamp(34px,8.8vw,52px);line-height:1.06}
+ .hero-copy .hero-intro{width:100%;font-size:clamp(15px,3.9vw,20px);line-height:1.4}
+ .hero-cats{position:relative;left:auto;top:auto;bottom:auto;transform:none;margin:18px auto 0;width:100%;height:auto;aspect-ratio:390 / 380}
+ .hero-cat.black{left:1%;top:2%;width:36%;height:70%;z-index:1}
+ .hero-cat.yellow{left:62%;top:0;width:33%;height:72%;z-index:2}
+ .hero-cat.calico{left:54%;top:34%;width:43%;height:52%;z-index:3}
+ .hero-cat.tabby{left:23%;top:29%;width:49%;height:57%;z-index:4}
+ .hero-cat.green{left:4%;top:57%;width:35%;height:39%;z-index:5}
+ .hero-cat.pink{left:62%;top:61%;width:35%;height:37%;z-index:6}
+ .hero-heart-three{display:none}
+}
+
+@media(max-width:900px){.hero-cat.yellow{left:59%;top:-4%;width:38%;height:72%}.hero-cat.calico{left:54%;top:43%;width:43%;height:51%}.hero-cat.tabby{left:17%;top:31%;width:50%;height:57%}.hero-cat.green{left:28%;top:63%;width:34%;height:35%}.hero-cat.pink{left:60%;top:64%;width:34%;height:35%}}
+

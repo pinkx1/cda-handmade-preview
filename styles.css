@@ -61,3 +61,15 @@ html,body{overflow-x:clip}
  .hero-heart-three{top:calc(216 * var(--u))}
  .hero{height:calc(662 * var(--u))}
 }
+
+/* Authentic photographs: maintain the existing organic card outlines. */
+.product picture{overflow:hidden;border-radius:17% 12% 16% 10% / 14% 17% 11% 15%}.yellow-flower picture,.flower-frog picture{border-radius:12% 19% 13% 17% / 16% 12% 19% 13%}.wizard picture,.sweater picture{border-radius:13% 19% 11% 16% / 22% 14% 19% 15%}.hero-cat img{object-fit:contain;object-position:bottom}
+
+@media(min-width:901px){.hero-cat.yellow{top:calc(310 * var(--u));height:calc(471 * var(--u))}}
+
+/* Original photo crops: prioritize product placement over background props. */
+.product picture img{object-fit:cover;object-position:50% 62%}.wizard picture img{object-position:50% 54%}.sweater picture img{object-position:50% 70%}.yellow-flower picture img{object-position:50% 52%}.soot picture img{object-position:50% 57%}.noface picture img{object-position:50% 64%}
+
+/* Final manually approved Figma screen 118:195. */
+.product picture{border-radius:0!important;overflow:visible}.product picture img{object-fit:fill!important;object-position:center!important}
+@media(min-width:901px){.hero{height:calc(980 * var(--u))}.hero-copy{top:calc(58 * var(--u))}.hero-cats{transform:none;left:0;top:0;width:100%;height:100%;margin:0}.hero-heart-two{left:calc(1290 * var(--u));top:calc(254 * var(--u))}.hero-heart-three{left:calc(981 * var(--u));top:calc(40 * var(--u))}.hero-cat.yellow{left:calc(1013 * var(--u));top:calc(19 * var(--u));width:calc(416 * var(--u));height:calc(899 * var(--u))}.hero-cat.black{left:calc(-2 * var(--u));top:calc(-67 * var(--u));width:calc(444 * var(--u));height:calc(1003 * var(--u))}.hero-cat.tabby{left:calc(202 * var(--u));top:calc(485 * var(--u));width:calc(395.754 * var(--u));height:calc(442.556 * var(--u))}.hero-cat.calico{left:calc(766 * var(--u));top:calc(426 * var(--u));width:calc(426.038 * var(--u));height:calc(510.007 * var(--u))}.hero-cat.pink{left:calc(431 * var(--u));top:calc(503 * var(--u));width:calc(363.406 * var(--u));height:calc(406.078 * var(--u))}.hero-cat.green{left:calc(592.907 * var(--u));top:calc(479.229 * var(--u));width:calc(405.5 * var(--u));height:calc(468.638 * var(--u))}}

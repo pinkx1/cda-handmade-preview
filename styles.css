@@ -79,3 +79,6 @@ html,body{overflow-x:clip}
 
 .hero-cat.black img{height:100%;position:static;top:auto;left:auto}
 
+
+@media(min-width:901px){.hero-cat.yellow{left:calc(1072 * var(--u))}}
+

@@ -82,3 +82,18 @@ html,body{overflow-x:clip}
 
 @media(min-width:901px){.hero-cat.yellow{left:calc(1072 * var(--u))}}
 
+
+/* Fit both viewport dimensions, keeping the entire composition above the next section. */
+@media(min-width:901px){
+ .hero{height:clamp(640px,calc(100svh - 92 * min(1.5px,100vw / 1440)),1100px)}
+ .hero-copy{top:20px;gap:16px}
+ .hero-copy h1{font-size:clamp(64px,7.08vw,110px)}
+ .hero-copy .hero-intro{font-size:clamp(18px,1.53vw,24px)}
+ .hero-cats{--u:min(1.5px,calc(var(--viewport-width,100vw) / 1440),calc((max(640px,min(1100px,100svh - 92 * min(1.5px,100vw / 1440))) - 260px) / 756));width:calc(1440 * var(--u));height:calc(980 * var(--u));left:50%;top:auto;bottom:20px;transform:translateX(-50%);margin:0}
+}
+
+@media(min-width:901px){.hero-copy .hero-intro{max-width:720px}}
+
+
+@media(min-width:901px) and (max-height:850px){.hero-copy h1{font-size:clamp(56px,6vw,88px)}.hero-copy .hero-intro{font-size:18px;max-width:440px}}
+

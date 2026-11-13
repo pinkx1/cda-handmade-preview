@@ -8,9 +8,6 @@
 .catalog{position:relative;--u:min(calc(100vw / 1440),calc(1600px / 1440));height:calc(2390 * var(--u) + 270px);margin-top:60px}
 .catalog .product{position:absolute;left:calc(var(--x) * var(--u));top:calc(var(--y) * var(--u) + var(--offset,0px));width:calc(var(--w) * var(--u));min-width:0}
 .catalog .product-image{--image-height:calc(var(--photo-h) * var(--u));--card-padding:clamp(16px,2vw,30px);height:var(--image-height);display:flex;align-items:center;justify-content:center;padding:var(--card-padding);background:#f1e7dd;clip-path:url(#catalog-card);overflow:hidden}
-.catalog .product:nth-of-type(3n+1) .product-image{background:#efd5da}
-.catalog .product:nth-of-type(3n+2) .product-image{background:#eee4d9}
-.catalog .product:nth-of-type(3n) .product-image{background:#e5e9dc}
 .catalog .product-image .cutout{height:auto;width:min(100%,calc((var(--image-height) - 2 * var(--card-padding)) * var(--asset-ratio,1)));filter:drop-shadow(0 10px 6px #553b2720)}
 .catalog .product-caption{display:block;margin-top:12px;padding-left:6px;font-size:clamp(14px,1.12vw,18px);line-height:1.35}
 .catalog .price{font-size:inherit;white-space:nowrap}
@@ -53,3 +50,45 @@
  .catalog .product-description{font-size:13px;margin-left:0}
  .catalog-footnote{grid-column:1/-1;font-size:12px;margin-top:10px}
 }
+
+/* Keep the complete first screen inside the visible viewport. */
+.site{--header-height:104px}
+.header{height:var(--header-height);min-height:0}
+.hero{height:calc(100dvh - var(--header-height));padding-top:16px;display:flex;flex-direction:column}
+.hero h1{font-size:clamp(40px,min(7.2vw,12svh),110px);margin:12px 0 18px}
+.hero-intro{font-size:clamp(14px,min(1.4vw,2.5svh),21px)}
+.hero-stage{flex:1;order:1;min-height:0;aspect-ratio:auto;container-type:size;width:100%;margin:0}
+.hero-group{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:min(100cqw,calc((100cqh - 16px) * 2.82));aspect-ratio:1672/590}
+.hero .hero-cat{bottom:0}
+.hero .hero-cat.black{width:24%}
+.hero-scroll{position:static;order:0;flex:none;align-self:center;z-index:8;margin:12px auto;font-size:12px}
+
+@media(max-width:640px){
+ .site{--header-height:84px}
+ .hero{padding-top:14px}
+ .hero h1{font-size:clamp(32px,min(11.5vw,9svh),68px);margin:14px 0}
+ .hero .hero-stage{width:100%;margin:0}
+ .hero-group{width:min(100cqw,calc((100cqh - 16px) * 1.46));aspect-ratio:390/266}
+ .hero .hero-cat.black{width:35%;bottom:24%}
+ .hero .hero-cat.white{bottom:2%}
+ .hero .hero-cat.ginger{bottom:25%}
+ .hero .hero-cat.domino{bottom:4%}
+ .hero-scroll{margin:8px auto}
+ .hero .hero-intro{font-size:clamp(13px,2.1svh,15px)}
+}
+@media(max-height:500px) and (min-width:641px){
+ .site{--header-height:64px}
+ .header{padding-block:10px}
+ .hero{padding-top:0}
+ .hero .eyebrow{font-size:10px}
+ .hero h1{font-size:clamp(28px,9svh,44px);margin:6px 0}
+ .hero-intro{font-size:12px}
+ .hero-note{display:none}
+}
+
+/* Small studio scenes stay behind the original ceramic cutouts. */
+.catalog .product-image{background:#efd5da var(--scene,url('assets/scenes/fabric.webp')) center/cover no-repeat;align-items:flex-end}
+.catalog #cat-black,.catalog #cat-domino{--scene:url('assets/scenes/paper.webp')}
+.catalog #cat-green,.catalog #frog-happy,.catalog #frog-thoughtful,.catalog #frog-lily{--scene:url('assets/scenes/garden.webp')}
+.catalog #krosh,.catalog #yozhik,.catalog #barash,.catalog #nyusha{--scene:url('assets/scenes/paper.webp')}
+.catalog .product:nth-of-type(even) .product-image{background-position:65% center}

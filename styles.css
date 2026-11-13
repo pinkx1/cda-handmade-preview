@@ -7,8 +7,8 @@
 /* The original catalog composition uses a 1440-unit canvas. */
 .catalog{position:relative;--u:min(calc(100vw / 1440),calc(1600px / 1440));height:calc(2390 * var(--u) + 270px);margin-top:60px}
 .catalog .product{position:absolute;left:calc(var(--x) * var(--u));top:calc(var(--y) * var(--u) + var(--offset,0px));width:calc(var(--w) * var(--u));min-width:0}
-.catalog .product-image{--image-height:calc(var(--photo-h) * var(--u));--card-padding:clamp(16px,2vw,30px);height:var(--image-height);display:flex;align-items:center;justify-content:center;padding:var(--card-padding);background:#f1e7dd;clip-path:url(#catalog-card);overflow:hidden}
-.catalog .product-image .cutout{height:auto;width:min(100%,calc((var(--image-height) - 2 * var(--card-padding)) * var(--asset-ratio,1)));filter:drop-shadow(0 10px 6px #553b2720)}
+.catalog .product-image{--image-height:calc(var(--photo-h) * var(--u));height:var(--image-height);clip-path:url(#catalog-card);overflow:hidden}
+.catalog .product-image>img{width:100%;height:100%;object-fit:cover}
 .catalog .product-caption{display:block;margin-top:12px;padding-left:6px;font-size:clamp(14px,1.12vw,18px);line-height:1.35}
 .catalog .price{font-size:inherit;white-space:nowrap}
 .catalog .product h3{font-size:inherit;font-weight:700;color:var(--ink);margin-bottom:3px}
@@ -46,6 +46,7 @@
  .catalog #cat-white,.catalog #cat-basket,.catalog #frog-lily{grid-column:1/-1}
  .catalog #cat-white .product-image,.catalog #cat-basket .product-image,.catalog #frog-lily .product-image{--image-height:clamp(240px,65vw,430px)}
  .catalog #cat-green,.catalog #cat-domino,.catalog #yozhik,.catalog #nyusha{padding-top:35px}
+ .catalog #krosh .product-image,.catalog #yozhik .product-image{height:auto;aspect-ratio:4/5}
  .catalog .product-caption{font-size:16px;margin-top:10px;padding-left:0}
  .catalog .product-description{font-size:13px;margin-left:0}
  .catalog-footnote{grid-column:1/-1;font-size:12px;margin-top:10px}
@@ -85,10 +86,3 @@
  .hero-intro{font-size:12px}
  .hero-note{display:none}
 }
-
-/* Small studio scenes stay behind the original ceramic cutouts. */
-.catalog .product-image{background:#efd5da var(--scene,url('assets/scenes/fabric.webp')) center/cover no-repeat;align-items:flex-end}
-.catalog #cat-black,.catalog #cat-domino{--scene:url('assets/scenes/paper.webp')}
-.catalog #cat-green,.catalog #frog-happy,.catalog #frog-thoughtful,.catalog #frog-lily{--scene:url('assets/scenes/garden.webp')}
-.catalog #krosh,.catalog #yozhik,.catalog #barash,.catalog #nyusha{--scene:url('assets/scenes/paper.webp')}
-.catalog .product:nth-of-type(even) .product-image{background-position:65% center}

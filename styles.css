@@ -9,6 +9,7 @@
 .catalog .product{position:absolute;left:calc(var(--x) * var(--u));top:calc(var(--y) * var(--u) + var(--offset,0px));width:calc(var(--w) * var(--u));min-width:0}
 .catalog .product-image{--image-height:calc(var(--photo-h) * var(--u));height:var(--image-height);clip-path:url(#catalog-card);overflow:hidden}
 .catalog .product-image>img{width:100%;height:100%;object-fit:cover}
+.catalog #cat-ginger .product-image>img,.catalog #cat-basket .product-image>img{object-position:center top}
 .catalog .product-caption{display:block;margin-top:12px;padding-left:6px;font-size:clamp(14px,1.12vw,18px);line-height:1.35}
 .catalog .price{font-size:inherit;white-space:nowrap}
 .catalog .product h3{font-size:inherit;font-weight:700;color:var(--ink);margin-bottom:3px}

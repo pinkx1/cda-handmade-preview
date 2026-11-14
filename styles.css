@@ -16,7 +16,7 @@
 .catalog .product-image{overflow:hidden;clip-path:url(#catalog-card);aspect-ratio:var(--photo-ratio,1.2)}
 .catalog .product-image>img{width:100%;height:100%;object-fit:cover}
 .catalog-collection{--photo-ratio:1.6}
-.catalog-opening>.product{margin-top:32px;--photo-ratio:1.08}
+.catalog-opening>.product:not(.catalog-collection){margin-top:32px;--photo-ratio:1.08}
 .catalog-cats #cat-basket{--photo-ratio:1.65}
 .catalog-cats #cat-green{margin-top:22px;--photo-ratio:1.25}
 .catalog-cats #cat-ginger{--photo-ratio:1.12}
@@ -185,7 +185,7 @@
 
 
  .catalog-collection{--photo-ratio:1.5}
- .catalog-opening>.product{margin-top:0;grid-column:1/-1;justify-self:end;width:63%;--photo-ratio:1.15}
+ .catalog-opening>.product:not(.catalog-collection){margin-top:0;grid-column:1/-1;justify-self:end;width:63%;--photo-ratio:1.15}
  .catalog-cats #cat-green,.catalog-friends #krosh,.catalog-friends #nyusha{margin-top:0}
  .catalog-cats #cat-ginger,.catalog-friends #yozhik{margin-top:26px}
  .catalog-pond .catalog-intro{grid-column:1/-1;grid-row:auto}

@@ -204,5 +204,8 @@
 
 @media(min-width:641px) and (max-width:800px) and (min-height:501px){.header{padding-inline:22px;gap:16px}.header .brand>span{font-size:60px}.header .button{font-size:13px;padding:12px 17px;gap:10px}}
 
-.hero h1{width:fit-content;max-width:100%;margin-inline:auto}
-.hero-aside{display:block;width:fit-content;margin:4px 0 0 auto;font:400 clamp(22px,2.4vw,34px)/1.4 'Bad Script',cursive;letter-spacing:0;text-align:right;color:var(--accent);transform:rotate(-4deg)}
+.hero h1{position:relative;width:fit-content;max-width:100%;margin-inline:auto}
+.hero-aside{position:absolute;right:0;bottom:-14px;width:max-content;font:400 clamp(16px,1.5vw,22px)/1.2 'Bad Script',cursive;letter-spacing:0;color:var(--accent);transform:rotate(-4deg)}
+@media(max-width:640px){.hero-aside{bottom:-11px;font-size:13px;transform:none}}
+
+@media(min-width:641px) and (max-height:500px){.hero-aside{left:calc(100% + 10px);right:auto;bottom:-4px;font-size:14px;transform:none}}

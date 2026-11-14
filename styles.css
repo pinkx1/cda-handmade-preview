@@ -4,25 +4,36 @@
 .hero{position:relative;padding:28px 0 0}.hero-copy{position:relative;z-index:8;text-align:center;padding:0 24px}.eyebrow{font-size:13px;letter-spacing:1.8px;text-transform:uppercase}.hero h1{margin:14px 0 22px;color:var(--ink);font:400 clamp(56px,7.2vw,110px)/1.02 'PT Serif Caption',serif;letter-spacing:-4px}.hero-intro{font-size:clamp(16px,1.4vw,21px);line-height:1.4}.hero-note{position:absolute;z-index:8;right:6%;top:175px;font:28px/1.05 'PT Sans',sans-serif;transform:rotate(10deg);text-align:center}.hero-note span{display:block;font-size:34px;margin-top:8px}.hero-stage{position:relative;isolation:isolate;width:100%;aspect-ratio:1672/550;margin-top:25px}.hero-cat{position:absolute;background:none;border:0;padding:0;cursor:pointer;transform-origin:50% 95%;-webkit-tap-highlight-color:transparent}.hero-cat.black{left:1.2%;bottom:6%;width:26%;z-index:1}.hero-cat.white{left:20.5%;bottom:1.8%;width:30%;z-index:2}.hero-cat.green{left:38.6%;bottom:0;width:21%;z-index:5}.hero-cat.ginger{left:54.7%;bottom:2%;width:18.5%;z-index:3}.hero-cat.domino{left:68.5%;bottom:2.5%;width:30%;z-index:4}
 .cutout{position:relative;display:block;width:100%;aspect-ratio:var(--asset-ratio,1);overflow:hidden}.cutout img{position:absolute;left:var(--asset-left,0%);top:var(--asset-top,0%);width:var(--asset-width,100%);max-width:none;height:auto}.hero-scroll{display:flex;justify-content:center;gap:22px;margin:22px auto 45px;font-size:14px}.hero-scroll span{font-size:21px}.hero-cat.wiggle{animation:wiggle .65s ease-in-out}@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-3deg)}70%{transform:rotate(3deg)}}
 .custom-section{margin-top:60px}.custom-panel{background:var(--panel);border-radius:28px;padding:clamp(28px,4vw,64px);display:grid;grid-template-columns:1fr 1.1fr;gap:30px 6%}h2{font:400 clamp(34px,3.7vw,57px)/1.12 'PT Serif Caption',serif;letter-spacing:-1.5px;color:var(--ink)}.custom-copy h2{margin:0 0 22px}.custom-copy>p:not(.eyebrow){max-width:460px}.custom-price{margin:24px 0 20px;font-size:26px;color:var(--ink)}.custom-price span{display:block;font-size:13px;color:var(--body);margin-top:3px}.text-link{display:inline-block;text-underline-offset:5px;text-decoration:underline;text-decoration-thickness:1px}.text-link:hover{color:var(--accent)}.custom-example{display:flex;align-items:center;justify-content:center;position:relative;gap:8px;min-width:0}.pet-photo{width:41%;transform:rotate(-6deg);flex-shrink:0}.pet-photo>img{aspect-ratio:4/5;object-fit:cover;border:9px solid white;border-bottom-width:26px;box-shadow:0 5px 20px #3b251910;border-radius:2px}.pet-photo figcaption,.pet-figurine figcaption{font:24px/1.15 'PT Sans',sans-serif;text-align:center;margin-top:12px}.pet-figurine{width:49%;flex-shrink:0}.custom-arrow{position:relative;z-index:2;color:var(--ink);width:13%;height:auto;flex-shrink:0}
-/* The original catalog composition uses a 1440-unit canvas. */
-.catalog{position:relative;--u:min(calc(100vw / 1440),calc(1600px / 1440));height:calc(2230 * var(--u) + 455px);margin-top:60px}
-.catalog .product{position:absolute;left:calc(var(--x) * var(--u));top:calc(var(--y) * var(--u) + var(--offset,0px));width:calc(var(--w) * var(--u));min-width:0}
-.catalog .product-image{--image-height:calc(var(--photo-h) * var(--u));height:var(--image-height);clip-path:url(#catalog-card);overflow:hidden}
+/* Flowing rows keep the editorial rhythm as captions and screen sizes change. */
+.catalog{margin:clamp(65px,7vw,110px) clamp(22px,4.45vw,72px) 0;color:var(--ink)}
+.catalog-row{display:grid;gap:clamp(18px,2.3vw,36px);align-items:start;margin-bottom:clamp(38px,4.6vw,72px)}
+.catalog-opening,.catalog-pond{grid-template-columns:2fr 6fr 3fr}
+.catalog-cats{grid-template-columns:4.5fr 3fr 3.5fr}
+.catalog-pond{grid-template-columns:6fr 2fr 3fr}
+.catalog-friends{grid-template-columns:2fr 3fr 3fr 3fr}
+.catalog-finale{grid-template-columns:4fr 7fr;align-items:center}
+.catalog .product,.catalog-collection{position:relative;min-width:0}
+.catalog .product-image{overflow:hidden;clip-path:url(#catalog-card);aspect-ratio:var(--photo-ratio,1.2)}
 .catalog .product-image>img{width:100%;height:100%;object-fit:cover}
-.catalog #cat-ginger .product-image>img,.catalog #cat-basket .product-image>img{object-position:center top}
+.catalog-collection{--photo-ratio:1.6}
+.catalog-opening>.product{margin-top:32px;--photo-ratio:1.08}
+.catalog-cats #cat-basket{--photo-ratio:1.65}
+.catalog-cats #cat-green{margin-top:22px;--photo-ratio:1.25}
+.catalog-cats #cat-ginger{--photo-ratio:1.12}
+.catalog-pond #frog-lily{grid-column:1;grid-row:1;--photo-ratio:1.95}
+.catalog-pond .catalog-intro{grid-column:2;grid-row:1}
+.catalog-pond #frog-happy{--photo-ratio:1.24}
+.catalog-friends #krosh{--photo-ratio:.8;margin-top:22px}
+.catalog-friends #yozhik{--photo-ratio:1}
+.catalog-friends #nyusha{--photo-ratio:.95;margin-top:28px}
+.catalog-finale #barash{--photo-ratio:1.14}
+.catalog-finale #frog-minis{--photo-ratio:1.65}
 
-.catalog .price{font-size:inherit;white-space:nowrap}
-.catalog .product h3{font-size:inherit;font-weight:700;color:var(--ink);margin-bottom:3px}
+.catalog-intro{display:flex;flex-direction:column;align-items:flex-start;gap:24px;padding:12px 0;min-width:0}
+.catalog-heading{font:400 clamp(27px,2.5vw,40px)/1.25 'Bad Script',cursive;letter-spacing:-.5px;color:var(--accent);transform:rotate(-6deg)}
+.catalog-doodle{align-self:center;color:var(--accent);font:36px/1 'Bad Script',cursive;transform:rotate(12deg)}
+.catalog-note{font-size:clamp(13px,1.05vw,16px);line-height:1.4;max-width:240px}
 
-.catalog-heading{position:absolute;font:400 clamp(24px,2.57vw,42px)/1.08 'PT Sans',sans-serif;letter-spacing:0;color:var(--accent);transform:rotate(-7deg)}
-.cats-heading{left:calc(64 * var(--u));top:calc(100 * var(--u));width:calc(210 * var(--u))}
-.frogs-heading{left:calc(800 * var(--u));top:calc(985 * var(--u) + 150px);width:calc(210 * var(--u))}
-.characters-heading{left:calc(64 * var(--u));top:calc(1760 * var(--u) + 400px);width:calc(260 * var(--u))}
-.catalog-note{position:absolute;font-size:clamp(14px,1.25vw,20px);line-height:1.4}
-.cats-note{left:calc(64 * var(--u));top:calc(185 * var(--u));width:calc(210 * var(--u))}
-.frogs-note{left:calc(804 * var(--u));top:calc(1075 * var(--u) + 150px);width:calc(208 * var(--u))}
-.characters-note{left:calc(690 * var(--u));top:calc(1775 * var(--u) + 400px);width:calc(300 * var(--u))}
-.catalog-footnote{position:absolute;left:calc(64 * var(--u));bottom:0;font-size:13px;color:#75695f}
 .about-section{margin-top:48px;padding:36px 0;border-top:1px solid #ded3c6;display:grid;grid-template-columns:1fr 1fr;gap:70px}.about-copy{max-width:520px}.about-copy>p+p{margin-top:18px}.availability{font-size:14px;color:#75695f}.footer{border-top:1px solid #ded3c6;padding:34px 0 25px;display:grid;grid-template-columns:1fr 1fr auto;align-items:start;gap:24px;font-size:14px}.footer .brand>span{font-size:27px}.concept-note{grid-column:1/-1;max-width:850px;color:#81766a;font-size:11px;line-height:1.5;margin-top:15px}
 @media(max-width:1000px){.hero-note{display:none}.header nav{gap:20px}.hero h1{letter-spacing:-2px}.custom-panel{gap:30px}.custom-example{gap:3px}.about-section{gap:35px}.footer{grid-template-columns:1fr 1fr}.footer>.text-link{grid-column:2}.footer .concept-note{grid-column:1/-1}}
 @media(max-width:640px){body{font-size:16px}.header{padding:20px 22px;min-height:84px;gap:12px}.brand>span{font-size:24px;letter-spacing:-1px}.brand>small{font-size:8px;letter-spacing:.8px}.header .button{padding:12px 17px;font-size:13px;gap:10px}.hero{padding-top:26px}.hero .eyebrow{font-size:10px;letter-spacing:1.3px}.hero h1{font-size:clamp(43px,11.5vw,68px);letter-spacing:-1.7px;margin:17px 0 18px}.hero-intro{font-size:15px;max-width:420px;margin:auto}.desktop-break{display:none}.hero-stage{width:100%;aspect-ratio:390/266;margin-top:28px}.hero-cat.black{width:37%;left:-1%;bottom:24%;z-index:1}.hero-cat.white{width:48%;left:10%;bottom:2%;z-index:3}.hero-cat.ginger{width:29%;left:39%;bottom:25%;z-index:2}.hero-cat.domino{width:47%;left:55%;bottom:4%;z-index:4}.hero-cat.green{width:30%;left:39%;bottom:0;z-index:5}.hero-scroll{margin:23px auto 28px;font-size:12px}.section{margin-inline:22px}.custom-section{margin-top:25px}.custom-panel{border-radius:22px;padding:28px 24px;grid-template-columns:1fr;gap:26px}.custom-copy h2{font-size:35px;letter-spacing:-1px}.custom-copy>p:not(.eyebrow){font-size:15px}.custom-copy .custom-price{font-size:24px;margin-top:20px}.custom-copy .custom-price span{font-size:12px}.custom-copy .text-link{font-size:14px}.custom-example{min-height:215px;margin:0 -8px}.pet-photo figcaption,.pet-figurine figcaption{font-size:20px}.about-section{margin-top:36px;padding:28px 0;grid-template-columns:1fr;gap:24px}.about-section h2{font-size:35px}.about-copy{font-size:15px}.footer{padding-top:28px;grid-template-columns:1fr;gap:20px}.footer>.text-link{grid-column:1}.footer .concept-note{margin-top:4px;font-size:10px}}
@@ -37,22 +48,6 @@
 @media(max-width:640px){.hero-cat.black{left:1%;width:35%}.hero-cat.domino{left:55%;width:44%}}
 @media(max-width:360px){.header{padding-inline:16px;gap:8px}.brand>span{font-size:20px}.brand>small{font-size:7px}.header .button{font-size:12px;padding:10px 12px;gap:6px}.hero-copy{padding-inline:18px}.hero h1{font-size:11.5vw}.custom-copy h2{font-size:31px}}
 .pet-photo>img{width:100%;height:auto}
-
-@media(max-width:900px){
- .catalog{height:auto;margin:55px 22px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 18px;align-items:start}
- .catalog .product,.catalog-heading,.catalog-note,.catalog-footnote{position:static;width:auto;transform:none}
- .catalog-heading{grid-column:1/-1;font-size:34px;margin-top:15px}
- .catalog-note{font-size:16px;grid-column:1/-1;max-width:340px}
- .catalog .product-image{--image-height:clamp(150px,39vw,300px)}
- .catalog #cat-white,.catalog #cat-basket,.catalog #frog-lily{grid-column:1/-1}
- .catalog #cat-white .product-image,.catalog #cat-basket .product-image,.catalog #frog-lily .product-image{--image-height:clamp(240px,65vw,430px)}
- .catalog #cat-green,.catalog #cat-domino,.catalog #yozhik,.catalog #nyusha{padding-top:35px}
- .catalog #frog-minis{grid-column:1/-1;width:min(75%,260px);justify-self:center}
- .catalog #frog-minis .product-image{height:auto;aspect-ratio:1}
- .catalog #krosh .product-image,.catalog #yozhik .product-image{height:auto;aspect-ratio:4/5}
-
- .catalog-footnote{grid-column:1/-1;font-size:12px;margin-top:10px}
-}
 
 /* Keep the complete first screen inside the visible viewport. */
 .site{--header-height:104px}
@@ -141,37 +136,65 @@
 /* Short handwritten accents complement the PT Sans body text. */
 .catalog-heading,.pet-photo figcaption,.pet-figurine figcaption{font-family:'Bad Script',cursive;font-weight:400;font-synthesis:none}
 
-.catalog-heading{line-height:1.35}
 .pet-photo figcaption,.pet-figurine figcaption{font-size:24px;line-height:1.5}
 @media(max-width:640px){
  .pet-photo figcaption,.pet-figurine figcaption{font-size:20px}
 }
 
 /* Compact captions and full-card hit areas follow the original catalog. */
-.catalog{color:var(--ink)}
-.catalog-heading{color:var(--ink)}
-.catalog .product-caption{display:block;margin-top:10px;padding-left:5px;font-size:clamp(13px,1.12vw,16px);line-height:1.35}
-.catalog .product-caption h3{font:700 1em/1.35 'PT Sans',sans-serif;margin:0 0 2px;color:var(--ink)}
+
 .product-hit{position:absolute;inset:0;z-index:1;width:100%;height:100%;padding:0;border:0;border-radius:8px;background:transparent;cursor:pointer}
 .product:has(.product-hit:hover) h3{text-decoration:underline;text-underline-offset:3px}
 .product-hit:focus-visible{outline:2px solid var(--ink);outline-offset:6px}
 .button{gap:10px}
 .button-icon{width:24px;height:24px;flex:none}
 .hero-intro{color:var(--ink);line-height:1.3}
-@media(max-width:640px){.button-icon{width:20px;height:20px}.catalog .product-caption{font-size:14px;padding-left:2px}}
-@media(max-width:900px){.catalog .product{position:relative;left:auto;top:auto}}
+@media(max-width:640px){.button-icon{width:20px;height:20px}}
 
 .hero-cat .cutout img{filter:none}
 .custom-example{gap:10px}
 .pet-photo{width:37%}
 .pet-figurine{width:44%}
-.catalog .product-caption{margin-top:14px;padding-left:5px;font-size:clamp(15px,1.25vw,18px);line-height:1.4}
-.catalog .product-caption h3{margin-bottom:4px;line-height:1.3}
+
 .catalog .price{font-size:.94em;font-variant-numeric:tabular-nums;white-space:normal}
-@media(max-width:640px){.catalog .product-caption{font-size:15px;margin-top:12px;padding-left:2px}.custom-example{gap:6px}}
+@media(max-width:640px){.custom-example{gap:6px}}
 
 /* Frame the original photo around Mitya; keep correction reversible. */
 .pet-photo-frame{position:relative;overflow:hidden;border:9px solid white;border-bottom-width:26px;box-shadow:0 5px 20px #3b251910;border-radius:2px}
 .pet-photo-frame img{position:absolute;width:131.111%;max-width:none;height:auto;left:-15.556%;top:0;transform:translateY(-38.28125%);filter:brightness(1.12) saturate(.88)}
 
 .pet-photo-frame::before{content:"";display:block;padding-top:125%}
+
+.catalog .product-caption{margin-top:10px;padding-left:4px;font-size:clamp(13px,1.05vw,16px);line-height:1.35}
+.catalog .product-caption h3{font:700 1em/1.3 'PT Sans',sans-serif;margin:0 0 3px}
+@media(min-width:701px) and (max-width:1050px){
+ .catalog-opening,.catalog-pond{grid-template-columns:2.3fr 5.5fr 3.2fr}
+ .catalog-pond{grid-template-columns:5.5fr 2.3fr 3.2fr}
+ .catalog-friends{grid-template-columns:2.6fr 2.8fr 2.8fr 2.8fr}
+ .catalog-intro{gap:16px}
+ .catalog-doodle{font-size:27px}
+ .catalog-heading{font-size:27px}
+}
+@media(max-width:700px){
+ .catalog-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px;margin-bottom:40px}
+ .catalog-intro{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;gap:12px 20px;padding:0}
+ .catalog-heading{font-size:32px}
+ .catalog-doodle{font-size:30px;grid-column:2;grid-row:1}
+ .catalog-note{grid-column:1/-1;max-width:330px;font-size:15px}
+ .catalog-collection,.catalog-cats #cat-basket,.catalog-pond #frog-lily,.catalog-finale #frog-minis{grid-column:1/-1}
+
+
+ .catalog-collection{--photo-ratio:1.5}
+ .catalog-opening>.product{margin-top:0;grid-column:1/-1;justify-self:end;width:63%;--photo-ratio:1.15}
+ .catalog-cats #cat-green,.catalog-friends #krosh,.catalog-friends #nyusha{margin-top:0}
+ .catalog-cats #cat-ginger,.catalog-friends #yozhik{margin-top:26px}
+ .catalog-pond .catalog-intro{grid-column:1/-1;grid-row:auto}
+ .catalog-pond #frog-lily{grid-column:1/-1;grid-row:auto}
+ .catalog-pond #frog-happy{grid-column:2;--photo-ratio:1}
+ .catalog-friends #nyusha{grid-column:1/-1;width:65%;justify-self:end;--photo-ratio:1.1}
+ .catalog-finale #barash{grid-column:1;width:100%;--photo-ratio:.9}
+ .catalog-finale #frog-minis{--photo-ratio:1.6}
+
+}
+
+@media(max-width:700px){.catalog .product-caption{font-size:14px;padding-left:2px}}
